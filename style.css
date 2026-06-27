@@ -1,0 +1,448 @@
+/* Core Styling & Color Harmony */
+:root {
+    --primary-red: #D32F2F;
+    --primary-blue: #1976D2;
+    --bg-light: #f4f7f6;
+    --text-dark: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px; 
+    background-color: #151515; /* Updated to perfectly match the logo's dark grey-black */
+    position: fixed;
+    width: 100%;
+    height: 90px; 
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    transition: all 0.3s ease;
+}
+
+nav .logo {
+    height: 100%; 
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; 
+}
+
+nav .logo img {
+    height: 100%; 
+    width: auto; 
+    object-fit: contain;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff; 
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1.05rem; 
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-red);
+}
+
+
+/* Hero Sections */
+.hero {
+    height: 70vh; /* Reduced height to perfectly frame the wide panoramic image */
+    margin-top: 90px; /* Pushes the image down so the top isn't hidden behind the black navbar */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('cet.jpg') center center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.3; /* Adds ideal vertical spacing between the two lines of text */
+    text-align: center; /* Ensures both lines are perfectly centered over each other */
+}
+
+.renovation-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('unnamed.webp') center/cover;
+    height: 60vh;
+}
+
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* Specific Elements */
+.fun-fact {
+    background-color: white;
+    border-left: 5px solid var(--primary-red);
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.cta-box {
+    background-color: white;
+    padding: 40px;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   Two-Column Layout & Slideshow
+   ========================================= */
+.content-split {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Space between the slider and the text */
+    flex-wrap: wrap; /* Ensures it stacks on mobile screens */
+}
+
+.slideshow-container {
+    flex: 0 0 45%; /* Takes up 45% of the container width on the left */
+    position: relative;
+    height: 350px; /* Fixed height so it doesn't take up too much vertical space */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background-color: #000; /* Dark background while images load */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the box perfectly without stretching */
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth cross-fade effect */
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.legacy-text {
+    flex: 1; /* Takes up the remaining 55% of the space on the right */
+}
+
+/* Make it responsive for smaller screens (tablets/phones) */
+@media (max-width: 900px) {
+    .slideshow-container {
+        flex: 0 0 100%;
+        height: 250px;
+    }
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.primary-btn {
+    background-color: var(--primary-red);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background-color: #151515; /* Matched to the dark tab at the top */
+    color: white;
+    padding: 20px 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Puts copyright on left, icons on right */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; 
+}
+
+.copyright {
+    font-size: 0.75rem; /* Made the text way smaller */
+    color: #888; /* Slightly dimmed so it isn't overpowering */
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between the icons */
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.social-links a:hover {
+    color: var(--primary-red);
+    transform: translateY(-3px); /* Slight jump effect on hover */
+}
+
+/* Custom styling for your downloaded CET emblem */
+.custom-icon {
+    height: 22px; /* Matched to the size of the Font Awesome icons */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1.5s ease-in;
+}
+
+.slide-up {
+    animation: slideUp 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2rem; }
+}
+/* =========================================
+   Intro Screen Styles
+   ========================================= */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff; /* Confirmed Pure White Background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    transition: opacity 0.8s ease, visibility 0.8s ease; 
+    cursor: pointer; 
+}
+
+#intro-logo {
+    max-width: 80%;
+    height: auto;
+    max-height: 220px; /* Increased height so the circular logo looks prominent */
+    animation: pulse 2s infinite; 
+}
+.intro-hint {
+    margin-top: 30px;
+    color: #888888;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: pulseOpacity 1.5s infinite;
+}
+
+/* JavaScript will add this class to trigger the fade out */
+.hide-intro {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Intro Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulseOpacity {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+/* =========================================
+   Renovation Promo Image Link
+   ========================================= */
+.renovation-promo {
+    display: block;
+    position: relative;
+    margin-top: 30px; /* Adds space between the historical fact and the image */
+    border-radius: 8px;
+    overflow: hidden;
+    height: 150px; /* Keeps it compact so it fits beautifully on the screen */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.renovation-promo:hover {
+    transform: translateY(-4px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.renovation-promo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image doesn't stretch or distort */
+    display: block;
+}
+
+.promo-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Dark transparent background for readability */
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+/* =========================================
+   Homepage Extended Content Styles
+   ========================================= */
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.lead-text { font-size: 1.15rem; font-weight: 500; color: var(--primary-blue); margin-bottom: 15px;}
+
+/* Section 2: Impact Section */
+.impact-section {
+    background-color: #e9ecef; /* Light gray background to break up the page */
+    padding: 60px 20px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.impact-section h2 { color: var(--primary-red); margin-bottom: 20px; }
+
+/* Section 3: Featured Initiatives (Grid Layout) */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 30px;
+}
+
+.initiative-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.initiative-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+    flex: 1; /* Pushes button to bottom if cards are different heights */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.25rem;}
+.card-content p { margin-bottom: 20px; font-size: 0.95rem; flex: 1;}
+
+.text-btn {
+    background: transparent;
+    color: var(--primary-red);
+    padding: 0;
+    margin-top: auto;
+    font-size: 1rem;
+}
+.text-btn:hover { background: transparent; color: #000; transform: translateX(5px); }
+
+/* Section 4: News Section */
+.news-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+/* Section 5: Closing CTA */
+.closing-cta {
+    background: linear-gradient(135deg, #151515, #2a2a2a); /* Matches your footer */
+    color: #ffffff;
+    padding: 80px 20px;
+}
+.closing-cta h2 { font-size: 2.2rem; margin-bottom: 25px; color: var(--primary-red);}
+.closing-cta p { font-size: 1.1rem; max-width: 800px; margin: 0 auto 30px; color: #cccccc;}
+.closing-cta h3 { font-style: italic; font-weight: 400; color: #ffffff;}
